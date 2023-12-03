@@ -20,9 +20,17 @@ app.get("/", function (req, res) {
 
 app.get("/api/:date", (req, res) => {
   const { date } = req.params;
-  const newDate = new Date (date)
+  let unix; let newDate
+  if( isNaN(Number(date)) ) {
+    unix = new Date(date).getTime();
+    newDate = new Date(date)
+  }else {
+    unix = date
+    newDate = new Date(Number(date))
+  }
+
   res.json({
-    "unix": date,
+    "unix": unix,
     "utc": newDate
     })
 });
