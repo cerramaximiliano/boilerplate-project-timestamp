@@ -25,7 +25,7 @@ app.get("/api/:date", (req, res) => {
     unix = new Date(date).getTime();
     newDate = new Date(date).toString()
   }else {
-    unix = date
+    unix = Number(date)
     newDate = new Date(Number(date)).toString()
   }
 
