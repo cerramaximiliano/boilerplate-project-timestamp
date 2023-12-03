@@ -23,10 +23,10 @@ app.get("/api/:date", (req, res) => {
   let unix; let newDate
   if( isNaN(Number(date)) ) {
     unix = new Date(date).getTime();
-    newDate = new Date(date).toDateString()
+    newDate = new Date(date).toString()
   }else {
     unix = date
-    newDate = new Date(Number(date)).toDateString()
+    newDate = new Date(Number(date)).toString()
   }
 
   res.json({
