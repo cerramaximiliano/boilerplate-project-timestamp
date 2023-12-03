@@ -30,14 +30,13 @@ app.get('/api/', (req,res) => {
 
 app.get("/api/:date", (req, res) => {
   const { date } = req.params;
-  console.log(date)
   let unix; let newDate
   if( isNaN(Number(date)) ) {
     unix = new Date(date).getTime();
-    newDate = new Date(date).toString()
+    newDate = new Date(date).toUTCString()
   }else {
     unix = Number(date)
-    newDate = new Date(Number(date)).toString()
+    newDate = new Date(Number(date)).toUTCString()
   }
   if( newDate === 'Invalid Date'){
     res.json({
