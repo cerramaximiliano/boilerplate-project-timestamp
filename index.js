@@ -19,11 +19,13 @@ app.get("/", function (req, res) {
 });
 
 app.get('/api/', (req,res) => {
+  console.log(true)
 
   res.json({
-    "unix": new Date().getTime,
-    "utc": new Date()
+    "unix": new Date().getTime(),
+    "utc": new Date().toString(),
   })
+
 });
 
 app.get("/api/:date", (req, res) => {
